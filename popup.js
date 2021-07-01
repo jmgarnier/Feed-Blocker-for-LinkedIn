@@ -6,19 +6,11 @@ const checkboxCourses = document.getElementById("lk-checkbox-courses");
 
 chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
     if (res) {
-        checkboxFeed.checked = res.hideFeed;
+        checkboxFeed.checked = true;
         checkboxNews.checked = res.hideNews;
         checkboxCourses.checked = res.hideCourses;
     }
 })
-
-checkboxFeed.addEventListener('change', () => {
-    if (checkboxFeed.checked) {
-        chrome.storage.local.set({ 'hideFeed': true });
-    } else {
-        chrome.storage.local.set({ 'hideFeed': false });
-    }
-});
 
 checkboxNews.addEventListener('change', () => {
     if (checkboxNews.checked) {

@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Feed Blocker for LinkedIn",
-    "version": "1.1.1",
-    "description": "Block the feed on LinkedIn",
+    "name": "Kill Feed & Reclaim Life for LinkedIn",
+    "version": "1.2",
+    "description": "Block the feed on LinkedIn and no way turning back except by uninstalling app",
     "background": {
       "scripts":["background.js"]
     },

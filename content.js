@@ -90,17 +90,16 @@ setInterval(() => {
   if (window.location.href !== lastUrl) {
     lastUrl = window.location.href;
     chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
-      if (res.hideFeed) hideFeed();
+      hideFeed();
       if (res.hideNews) attemptToHideElement("news-module");
       if (res.hideCourses) attemptToHideElement("learning-top-courses");
     });
   }
   
-}, 500)
+}, 10000)
 
 chrome.storage.onChanged.addListener((res, _) => {
-  if (res.hideFeed && res.hideFeed.newValue == true) hideFeed();
-  if (res.hideFeed && res.hideFeed.newValue == false) addFeed();
+  hideFeed();
   if (res.hideNews && res.hideNews.newValue == true) attemptToHideElement("news-module");
   if (res.hideNews && res.hideNews.newValue == false) attemptToAddElement("news-module");
   if (res.hideCourses && res.hideCourses.newValue == true) attemptToHideElement("learning-top-courses");
@@ -108,7 +107,7 @@ chrome.storage.onChanged.addListener((res, _) => {
 });
 
 chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
-  if (res.hideFeed) hideFeed();
+  hideFeed();
   if (res.hideNews) attemptToHideElement("news-module");
   if (res.hideCourses) attemptToHideElement("learning-top-courses");
 });
